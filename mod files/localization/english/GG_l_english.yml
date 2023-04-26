@@ -1,0 +1,19 @@
+﻿l_english:
+
+	GG_COLLAPSE_ALL: "Collapse All"
+	GG_COLLAPSE_ALL_TOOLTIP: "Collapse all Game Rule categories"
+	GG_EXPAND_ALL: "Expand All"
+	GG_EXPAND_ALL_TOOLTIP: "Expand all Game Rule categories"
+	GG_ON: "Disable Gamerule Gadget"
+	GG_ON_TOOLTIP: "Only Game Rules from mods supported by Gamerule Gadgets are displayed.\nTurn off Gamerule Gadget to show all."
+	GG_OFF: "Enable Gamerule Gadget"
+	GG_OFF_TOOLTIP: "Turn On Gamerule Gadget"
+
+  GG_rulegroup_settings: "General Settings"
+  GG_rulegroup_realm: "Realm"
+  GG_rulegroup_multiplayer: "Multiplayer"
+	GG_rulegroup_balance: "Balance"
+	GG_rulegroup_gender: "Gender & Marriage"
+	GG_rulegroup_culture: "Culture"
+	GG_rulegroup_religion: "Religion"
+	GG_rulegroup_historicity: "Historical Events"

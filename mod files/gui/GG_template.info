@@ -1,0 +1,28 @@
+# Copy/paste this file in your mod, in the gui/ folder, and rename it to GG_<your mod name>.gui (example: GG_Inherichance.gui)
+# Mass replace YourMod with < your mod name> in this file
+# Send the author of Gamerule Gadget GG_<your mode name> so it can be properly suppported
+# Check comments below for other changes to make for full integration
+
+types GG_YourMod
+{
+	type GG_YourMod = GG_rulegroup {
+		blockoverride "GG_rulegroup" {
+			onclick = "[GetVariableSystem.Toggle('GG_YourMod')]"
+		}
+		blockoverride "GG_expand_button" {
+			frame = "[Select_int32( GetVariableSystem.Exists('GG_YourMod'), '(int32)2', '(int32)1' )]"
+		}
+		blockoverride "GG_icon" {
+			texture = "gfx/gamerules/YourMod.png" # Provide the relevant asset in the gfx/ folder
+		}
+		blockoverride "GG_rulegroup_name" {
+			text = "GG_YourMod" # Set-up the corresponding loc key in the localization/ folder. Loc string will be the category name, and should be the name of the mod so players can recognize it easily.
+		}
+		blockoverride "GG_rulegroup_visibility" {
+			visible = "[GetVariableSystem.Exists('GG_YourMod')]"
+		}
+		blockoverride "gamerules" {
+			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'gamerule_key' )]" } # Copy/paste this line for each gamerule in your mod, replacing 'gamerule_key' with the corresponding gamerule key found in the file you added in common/game_rules/ (example in vanilla: 'exclave_independence')
+		}
+	}
+}
