@@ -1,0 +1,1 @@
+﻿# gui/GG_achievements/PoW_achievement_widgets.gui = PoW_01_achievement

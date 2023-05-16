@@ -1,7 +1,7 @@
-version="1.0.2"
+version="1.1"
 tags={
 	"Utilities"
 }
 name="Gamerule Gadget"
-supported_version="1.6.*"
+supported_version="1.9.*"
 remote_file_id="2826829936"

@@ -1,0 +1,817 @@
+﻿difficulty = {
+	
+	categories = {
+		vanilla difficulty ai
+	}
+	
+	default = normal_difficulty
+
+	normal_difficulty = {
+		flag = GG_can_change_rule
+	}
+	
+	very_easy_difficulty = {
+		apply_modifier = player:very_easy_difficulty
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+	
+	easy_difficulty = {
+		apply_modifier = player:easy_difficulty
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+}
+
+exclave_independence = {
+	
+	categories = {
+		vanilla titles tweaks
+	}
+	
+	default = ai_significant_exclave_independence
+	
+	off_exclave_independence = {
+		flag = GG_can_change_rule
+	}
+	
+	ai_limited_exclave_independence = {
+		flag = GG_can_change_rule
+	}
+	
+	ai_significant_exclave_independence = {
+		flag = GG_can_change_rule
+	}
+	
+	ai_total_exclave_independence = {
+		flag = GG_can_change_rule
+	}
+
+	limited_exclave_independence = {
+		flag = GG_can_change_rule
+	}
+	
+	significant_exclave_independence = {
+		flag = GG_can_change_rule
+	}
+	
+	total_exclave_independence = {
+		flag = GG_can_change_rule
+	}
+}
+
+multiplayer_murder_schemes = {
+	
+	categories = {
+		vanilla multiplayer
+	}
+	
+	default = default_multiplayer_murder_schemes
+
+	default_multiplayer_murder_schemes = {
+		flag = GG_can_change_rule
+	}
+	
+	no_players_multiplayer_murder_schemes = {
+		flag = GG_can_change_rule
+	}
+	
+	no_player_families_multiplayer_murder_schemes = {
+		flag = GG_can_change_rule
+	}
+}
+
+minor_disease_frequency = {
+	
+	categories = {
+		vanilla difficulty health
+	}
+	
+	default = default_minor_disease_frequency
+
+	default_minor_disease_frequency = {
+		flag = GG_can_change_rule
+	}
+	
+	fewer_minor_disease_frequency = {
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+}
+
+matrilineal_marriages = {
+	
+	categories = {
+		vanilla historicity
+	}
+	
+	default = default_matrilineal_marriages
+
+	default_matrilineal_marriages = {
+		flag = GG_can_change_rule
+	}
+	
+	matrilineal_marriages_no_player_exception = {
+		flag = GG_can_change_rule
+	}
+
+	matrilineal_marriages_always = {
+		flag = GG_can_change_rule
+	}
+
+	matrilineal_marriages_female_and_equal = {
+		flag = GG_can_change_rule
+	}
+
+	matrilineal_marriages_never = {
+		flag = GG_can_change_rule
+	}
+}
+
+gender_equality = {
+	
+	categories = {
+		vanilla game_modes
+	}
+	
+	default = default_gender_equality
+
+	default_gender_equality = {
+	}
+	
+	full_gender_equality = {
+		flag = blocks_achievements
+	}
+
+	inversed_gender_equality = {
+	}
+}
+
+realm_stability = {
+	
+	categories = {
+		vanilla difficulty tweaks ai
+	}
+	
+	default = default_realm_stability
+
+	lesser_realm_stability = {
+		flag = GG_can_change_rule
+	}
+
+	default_realm_stability = {
+		flag = GG_can_change_rule
+	
+	}
+
+	higher_realm_stability = {
+		flag = GG_can_change_rule
+	}
+
+	extreme_realm_stability = {
+		flag = GG_can_change_rule
+	}
+}
+
+hybrid_culture_ai_frequency = {
+	
+	categories = {
+		vanilla ai culture
+	}
+	
+	default = default_hybrid_culture_ai_frequency
+	#dlc = "The Royal Court"
+
+	default_hybrid_culture_ai_frequency = {
+		flag = GG_can_change_rule
+	}
+
+	less_common_hybrid_culture_ai_frequency = {
+		flag = GG_can_change_rule
+	}
+
+	none_hybrid_culture_ai_frequency = {
+		flag = GG_can_change_rule
+	}
+}
+
+hybrid_culture_ai_restrictions = {
+	
+	categories = {
+		vanilla ai historicity culture
+	}
+	
+	default = default_hybrid_culture_ai_restrictions
+	#dlc = "The Royal Court"
+
+	default_hybrid_culture_ai_restrictions = {
+		flag = GG_can_change_rule
+	}
+
+	relaxed_hybrid_culture_ai_restrictions = {
+		flag = GG_can_change_rule
+	}
+
+	very_relaxed_hybrid_culture_ai_restrictions = {
+		flag = GG_can_change_rule
+	}
+}
+
+divergent_culture_ai_frequency = {
+	
+	categories = {
+		vanilla ai culture
+	}
+	
+	default = default_divergent_culture_ai_frequency
+	#dlc = "The Royal Court"
+
+	default_divergent_culture_ai_frequency = {
+		flag = GG_can_change_rule
+	}
+
+	less_common_divergent_culture_ai_frequency = {
+		flag = GG_can_change_rule
+	}
+
+	none_divergent_culture_ai_frequency = {
+		flag = GG_can_change_rule
+	}
+
+	relaxed_divergent_culture_ai_frequency = {
+		flag = GG_can_change_rule
+	}
+}
+
+hybrid_and_divergence_cooldowns = {
+	
+	categories = {
+		vanilla tweaks culture
+	}
+	
+	default = default_hybrid_and_divergence_cooldowns
+	#dlc = "The Royal Court"
+
+	default_hybrid_and_divergence_cooldowns = {
+		flag = GG_can_change_rule
+	}
+
+	slower_hybrid_and_divergence_cooldowns = {
+		flag = GG_can_change_rule
+	}
+
+	no_hybrid_and_divergence_cooldowns = {
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+
+	faster_hybrid_and_divergence_cooldowns = {
+		flag = GG_can_change_rule
+	}
+}
+
+regional_heresy = {
+	
+	categories = {
+		vanilla historicity faith
+	}
+	
+	default = default_regional_heresy
+
+	default_regional_heresy = {
+		flag = GG_can_change_rule
+	}
+
+	strict_regional_heresy = {
+		flag = GG_can_change_rule
+	}
+
+	relaxed_regional_heresy = {
+		flag = GG_can_change_rule
+	}
+}
+
+mongol_invasion = {
+	
+	categories = {
+		vanilla difficulty historicity
+	}
+	
+	default = default_mongol_invasion
+
+	default_mongol_invasion = {
+		flag = GG_can_change_rule
+	}
+	
+	never_mongol_invasion = {
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+	
+	random_mongol_invasion = {
+		flag = GG_can_change_rule
+	}
+}
+
+#random_harm = {
+	#	
+	#categories = {
+		#difficulty health
+	#}
+	#	
+	#default = harm_dangerous
+	#
+	#harm_dangerous = {}
+	#
+	#harm_illusion_of_safety = {}
+	#
+	#harm_safe = {}
+	#
+	#harm_tragic = {}
+	#
+	#harm_spiteful = {}
+	#
+	#harm_tragically_spiteful = {}
+#}
+
+#random_harm_target = {
+	#	
+	#categories = {
+		#difficulty health
+	#}
+	#	
+	#default = harm_target_all
+	#
+	#harm_target_all = {}
+	#	
+	#harm_target_player_only = {}
+	#	
+	#harm_target_ai_only = {}
+#}
+
+random_nickname_frequency = {
+	
+	categories = {
+		vanilla tweaks flavor
+	}
+	
+	default = random_nickname_frequency_default
+
+	random_nickname_frequency_default = {
+		flag = GG_can_change_rule
+	}
+	
+	random_nickname_frequency_halved = {
+		flag = GG_can_change_rule
+	}
+	
+	random_nickname_frequency_quartered = {
+		flag = GG_can_change_rule
+	}
+	
+	random_nickname_frequency_none = {
+		flag = GG_can_change_rule
+	}
+	
+	random_nickname_frequency_doubled = {
+		flag = GG_can_change_rule
+	}
+}
+
+casus_belli_costs = {
+	
+	categories = {
+		vanilla difficulty game_modes
+	}
+	
+	default = default_casus_belli_costs
+
+	default_casus_belli_costs = {
+		flag = GG_can_change_rule
+	}
+	
+	no_cost_casus_belli_costs = {
+		# Multiplies every cost by 0, remember to add this to all new CB's with a cost!
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+}
+
+culture_conversion_speed = {
+	
+	categories = {
+		vanilla tweaks historicity culture
+	}
+	
+	default = default_culture_conversion_speed
+
+	default_culture_conversion_speed = {
+		flag = GG_can_change_rule
+	}
+	
+	faster_culture_conversion_speed = {
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+	
+	significantly_faster_culture_conversion_speed = {
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+	
+	significantly_slower_culture_conversion_speed = {
+		flag = GG_can_change_rule
+	}
+	
+	slower_culture_conversion_speed = {
+		flag = GG_can_change_rule
+	}
+}
+
+faith_conversion_speed = {
+	
+	categories = {
+		vanilla tweaks historicity faith
+	}
+	
+	default = default_faith_conversion_speed
+
+	default_faith_conversion_speed = {
+		flag = GG_can_change_rule
+	}
+	
+	faster_faith_conversion_speed = {
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+	
+	significantly_faster_faith_conversion_speed = {
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+	
+	significantly_slower_faith_conversion_speed = {
+		flag = GG_can_change_rule
+	}
+	
+	slower_faith_conversion_speed = {
+		flag = GG_can_change_rule
+	}
+}
+
+diplomatic_range = {
+	
+	categories = {
+		vanilla tweaks historicity
+	}
+	
+	default = default_diplomatic_range
+
+	default_diplomatic_range = {
+		flag = GG_can_change_rule
+	}
+	
+	restricted_diplomatic_range = {
+		flag = restricted_diplomatic_range
+		flag = GG_can_change_rule
+	}
+	
+	unrestricted_diplomatic_range = {
+		flag = no_diplomatic_range
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+}
+
+end_date = {
+	
+	categories = {
+		vanilla game_modes
+	}
+	
+	default = 1453_end_date
+
+	1453_end_date = {
+		flag = GG_can_change_rule
+	}
+	
+	no_end_date_end_date = {
+		flag = no_end_date
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+}
+
+de_jure_requirement = {
+	
+	categories = {
+		vanilla titles tweaks
+	}
+	
+	default = on_limited_de_jure_requirement
+
+	on_limited_de_jure_requirement = {
+		flag = GG_can_change_rule
+	}
+
+	on_de_jure_requirement = {
+		flag = GG_can_change_rule
+	}
+	
+	off_de_jure_requirement = {
+		flag = GG_can_change_rule
+	}
+}
+
+empire_obscurity_requirement = {
+	
+	categories = {
+		vanilla titles tweaks
+	}
+	
+	default = on_empire_obscurity_requirement
+
+	on_empire_obscurity_requirement = {
+		flag = GG_can_change_rule
+	}
+	
+	off_empire_obscurity_requirement = {
+		flag = GG_can_change_rule
+	}
+}
+
+custom_kingdoms = {
+	
+	categories = {
+		vanilla historicity titles
+	}
+	
+	default = on_custom_kingdoms
+
+	on_custom_kingdoms = {
+		flag = GG_can_change_rule
+	}
+	
+	off_custom_kingdoms = {
+		flag = GG_can_change_rule
+	}
+}
+
+generate_families = {
+	
+	categories = {
+		vanilla tweaks flavor
+	}
+	
+	default = on_generate_families
+
+	on_generate_families = {
+	}
+	
+	on_generate_families_ai_only = {
+	}
+
+	off_generate_families = {
+	}
+}
+
+same_sex_relations = {
+	
+	categories = {
+		vanilla game_modes
+	}
+	
+	default = default_same_sex_relations
+
+	default_same_sex_relations = {
+
+	}
+
+	accepted_same_sex_relations = {
+		flag = blocks_achievements
+	}
+}
+
+same_sex_marriage = {
+	
+	categories = {
+		vanilla game_modes
+	}
+	
+	default = default_same_sex_marriage
+
+	default_same_sex_marriage = {
+
+	}
+
+	accepted_same_sex_marriage = {
+		flag = blocks_achievements
+	}
+}
+
+sexuality_distribution = {
+	
+	categories = {
+		vanilla game_modes
+	}
+	
+	default = sexuality_distribution_default
+
+	sexuality_distribution_default = {
+		flag = GG_can_change_rule
+	}
+
+	sexuality_distribution_equal = {
+		flag = GG_can_change_rule
+	}
+
+	sexuality_distribution_most_common_homosexuality = {
+		flag = GG_can_change_rule
+	}
+
+	sexuality_distribution_most_common_bisexuality = {
+		flag = GG_can_change_rule
+	}
+
+	sexuality_distribution_most_common_asexuality = {
+		flag = GG_can_change_rule
+	}
+
+}
+
+faith_acceptance = {
+	
+	categories = {
+		vanilla game_modes faith
+	}
+	
+	default = default_faith_acceptance
+
+	default_faith_acceptance = {
+
+	}
+
+	full_faith_acceptance = {
+		flag = blocks_achievements
+	}
+}
+
+randomized_faiths = {
+	
+	categories = {
+		vanilla game_modes faith
+	}
+	
+	default = randomized_faiths_off
+
+	randomized_faiths_off = {
+
+	}
+
+	randomized_faiths_on = {
+		flag = blocks_achievements
+	}
+}
+
+random_ruler_placement = {
+	
+	categories = {
+		vanilla game_modes
+	}
+	
+	default = random_ruler_placement_off
+
+	random_ruler_placement_off = {
+
+	}
+
+	random_ruler_placement_on = {
+		flag = blocks_achievements
+	}
+
+	random_ruler_placement_on_conversion = {
+		flag = blocks_achievements
+	}
+}
+
+ai_embarkation_cost = {
+	
+	categories = {
+		vanilla difficulty ai tweaks
+	}
+	
+	default = regular_embarkation_costs
+
+	regular_embarkation_costs = {
+		flag = GG_can_change_rule
+	}
+	
+	no_ai_embarkation_costs = {
+		apply_modifier = ai:no_embarkation_cost
+		flag = GG_can_change_rule
+	}
+}
+
+domain_limit_tweaks = {
+	
+	categories = {
+		vanilla difficulty tweaks
+	}
+	
+	default = domain_limit_default
+
+	domain_limit_default = {
+		flag = GG_can_change_rule
+	}
+
+	domain_limit_plus_one = {
+		apply_modifier = all:domain_limit_plus_one
+		flag = GG_can_change_rule
+	}
+
+	domain_limit_plus_two = {
+		apply_modifier = all:domain_limit_plus_two
+		flag = GG_can_change_rule
+	}
+
+	domain_limit_plus_three = {
+		apply_modifier = all:domain_limit_plus_three
+		flag = GG_can_change_rule
+	}
+
+	domain_limit_minus_one = {
+		apply_modifier = all:domain_limit_minus_one
+		flag = GG_can_change_rule
+	}
+
+	domain_limit_minus_two = {
+		apply_modifier = all:domain_limit_minus_two
+		flag = GG_can_change_rule
+	}
+
+	domain_limit_minus_three = {
+		apply_modifier = all:domain_limit_minus_three
+		flag = GG_can_change_rule
+	}
+}
+
+hungarian_migration = {
+	
+	categories = {
+		vanilla historicity flavor
+	}
+	
+	default = launch_immediate
+	launch_historical = {
+		flag = GG_can_change_rule
+	}
+	launch_immediate = {
+		flag = GG_can_change_rule
+	}
+	launch_random = {
+		flag = GG_can_change_rule
+	}
+	launch_off = {
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+}
+
+dlc_fp1_scandinavian_adventurers = {
+	
+	categories = {
+		vanilla difficulty historicity flavor
+	}
+	
+	default = fp1_scandi_adventurers_frequent
+	#dlc = "The Northern Lords"
+	fp1_scandi_adventurers_rare = {
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+	fp1_scandi_adventurers_occasional = {
+		flag = GG_can_change_rule
+	}
+	fp1_scandi_adventurers_frequent = {
+		flag = GG_can_change_rule
+	}
+	fp1_scandi_adventurers_apocalyptic = {
+		flag = GG_can_change_rule
+	}
+	fp1_scandi_adventurers_off = {
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+}
+
+dissolution_umayyad = {
+	
+	categories = {
+		vanilla historicity flavor
+	}
+	
+	default = dissolution_unconstrained
+	dissolution_unconstrained = {}
+	dissolution_after_caliph_death = {}
+	dissolution_historical_date = {}
+}

@@ -26,7 +26,7 @@ window = {
 	widget = {
 		name = "game_rules_window"
 		parentanchor = center
-		size = { 1100 845 }
+		size = { 1200 900 }
 		alwaystransparent = no
 		allow_outside = yes
 
@@ -75,13 +75,52 @@ window = {
 				}
 			}
 
-			hbox_ironman_achievements_info = {
-				name = "ironman_and_achievements"
-				visible = "[Not( GameHasMultiplePlayers )]"
+			hbox = {
+				margin = { 30 6 }
+				spacing = 20
+
+				hbox_ironman_achievements_info = {
+					name = "ironman_and_achievements"
+					visible = "[Not( GameHasMultiplePlayers )]"
+				}
+
+				vbox_game_rule_preset_options = {
+					visible = "[And( IsHost, Not( HasGameStartedForTheFirstTime ) )]"
+				}
+				
+				vbox = {
+					spacing = 5
+					text_single = {
+						text = "GAME_RULE_CATEGORIES"
+						max_width = 350
+					}
+					
+					dropdown_menu_standard = {
+						# visible = "[And( IsHost, Not( HasGameStartedForTheFirstTime ) )]"
+
+						blockoverride "dropdown_properties"
+						{
+							datamodel = "[JominiGameRules.GetCategories]"
+							onselectionchanged = "[JominiGameRules.SelectCategory]"
+							selectedindex = "[JominiGameRules.GetSelectedCategoryIndex]"
+						}
+
+						blockoverride "dropdown_active_item_properties"
+						{
+							text = "[Select_CString( JominiGameRules.HasSelectedCategoryIndex, GameRuleCategory.GetName, Localize( 'GAME_RULES_CATEGORY_DROPDOWN_NONE_SELECTED' ) )]"
+						}
+
+						blockoverride "dropdown_item_properties"
+						{
+							text = "[GameRuleCategory.GetName]"
+						}
+
+					}
+				}
+				
 			}
 
 			scrollbox = {
-				visible = "[GetVariableSystem.Exists('GG_vanilla')]"
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
 
@@ -91,7 +130,7 @@ window = {
 					margin_left = 25
 
 					fixedgridbox = {
-						datamodel = "[JominiGameRules.GetSettings]"
+						datamodel = "[JominiGameRules.GetVisibleSettings]"
 						addcolumn = 450
 						addrow = 170
 						datamodel_wrap = 2
@@ -139,30 +178,6 @@ window = {
 				}
 			}
 
-			scrollbox = {
-				visible = "[Not(GetVariableSystem.Exists('GG_vanilla'))]"
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-
-				blockoverride "scrollbox_content"
-				{
-					margin_top = 20
-					margin_left = 25
-					
-					GG_rulegroup_settings = {}
-					GG_rulegroup_multiplayer = {}
-					GG_rulegroup_realm = {}
-					GG_rulegroup_balance = {}
-					GG_rulegroup_gender = {}
-					GG_rulegroup_culture = {}
-					GG_rulegroup_religion = {}
-					GG_rulegroup_historicity = {}
-					GG_GLE = {}
-					GG_Inherichance = {}
-					GG_TAD = {}
-				}
-			}
-
 			expand = {}
 
 			hbox = {
@@ -187,7 +202,7 @@ window = {
 
 				button_primary = {
 					text = "APPLY"
-					visible = "[And( IsHost, Not( HasGameStartedForTheFirstTime ) )]"
+					# visible = "[And( IsHost, Not( HasGameStartedForTheFirstTime ) )]"
 					onclick = "[JominiGameRules.ApplySettings]"
 					onclick = "[JominiGameRules.Hide]"
 					shortcut = "close_window"
@@ -212,7 +227,7 @@ types GameRuleTypes
 		}
 
 		button_select_arrow = {
-			visible = "[And( IsHost, Not( HasGameStartedForTheFirstTime ) )]"
+			visible = "[And( IsHost, Or(Not( HasGameStartedForTheFirstTime ), GameRuleSetting.HasFlag( 'GG_can_change_rule')))]"
 			size = { 25 25 }
 			parentanchor = left|vcenter
 			mirror = horizontal
@@ -240,7 +255,7 @@ types GameRuleTypes
 		}
 
 		button_select_arrow = {
-			visible = "[And( IsHost, Not( HasGameStartedForTheFirstTime ) )]"
+			visible = "[And( IsHost, Or(Not( HasGameStartedForTheFirstTime ), GameRuleSetting.HasFlag( 'GG_can_change_rule')))]"
 			size = { 25 25 }
 			parentanchor = right|vcenter
 
@@ -339,7 +354,6 @@ types GameRuleTypes
 
 	type hbox_ironman_achievements_info = hbox {
 		layoutpolicy_horizontal = expanding
-		margin = { 30 6 }
 		spacing = 20
 
 		hbox = {
@@ -419,156 +433,89 @@ types GameRuleTypes
 		}
 
 		hbox_achievements_info = {}
+	}
 
-		expand = {}
+	type vbox_game_rule_preset_options = vbox
+	{
+		spacing = 5
 
-		vbox = {
-			hbox = {
+		dropdown_menu_standard = {
+			blockoverride "dropdown_properties"
+			{
+				datamodel = "[JominiGameRules.GetRulePresets]"
+				onselectionchanged = "[JominiGameRules.OnSelectPreset]"
+				onselectionchanged = "[SetIronmanEnabledStatus(JominiGameRules.GetSelectedPreset.IsIronmanEnabled)]"
+			}
 
-				visible = "[And( IsHost, Not( HasGameStartedForTheFirstTime ) )]"
-				spacing = 10
-				dropdown_menu_standard = {
-					blockoverride "dropdown_properties"
-					{
-						datamodel = "[JominiGameRules.GetRulePresets]"
-						onselectionchanged = "[JominiGameRules.OnSelectPreset]"
-						onselectionchanged = "[SetIronmanEnabledStatus(JominiGameRules.GetSelectedPreset.IsIronmanEnabled)]"
+
+			blockoverride "dropdown_active_item_properties"
+			{
+				text = "[SelectLocalization( JominiGameRules.HasValidPresetSelected, JominiGameRules.GetSelectedPreset.GetName, 'GAME_RULES_PRESET_DROPDOWN_NO_SELECTED' )]"
+			}
+
+			blockoverride "dropdown_item_properties"
+            {
+                widget = {
+					size = { 100% 100% }
+					
+                    hbox = {
+						margin_right = 10
+						
+                        text_single = {
+                            layoutpolicy_horizontal = expanding
+							max_width = 145
+							margin_left = 4
+							default_format = "#clickable"
+							text = "[GuiGameRulePreset.GetName]"
+                        }
+
+                        achievements_enabled_icon = {
+							visible = "[And( GuiGameRulePreset.IsIronmanEnabled, Not( GuiGameRulePreset.HasRuleWithFlag('blocks_achievements') ) )]"
+							size = { 20 20 }
+                        }
+    
+                        achievements_disabled_icon = {
+                            visible = "[Or( Not( GuiGameRulePreset.IsIronmanEnabled ), GuiGameRulePreset.HasRuleWithFlag('blocks_achievements') )]"
+                            size = { 20 20 }
+                        }
+                    }  
+                }
+            }
+
+			blockoverride "dropdown_list_properties"
+			{
+				minimumsize = { 192 50 }
+				hbox = {
+					visible = "[IsDataModelEmpty(JominiGameRules.GetRulePresets)]"
+					textbox = {
+						text = "GAME_RULES_PRESET_DROPDOWN_NO_SELECTED_BODY"
+						align = center
 					}
-
-
-					blockoverride "dropdown_active_item_properties"
-					{
-						text = "[SelectLocalization( JominiGameRules.HasValidPresetSelected, JominiGameRules.GetSelectedPreset.GetName, 'GAME_RULES_PRESET_DROPDOWN_NO_SELECTED' )]"
-					}
-
-					blockoverride "dropdown_item_properties"
-					{
-						widget = {
-							size = { 100% 100% }
-							
-							hbox = {
-								margin_right = 10
-								
-								text_single = {
-									layoutpolicy_horizontal = expanding
-									max_width = 145
-									margin_left = 4
-									default_format = "#clickable"
-									text = "[GuiGameRulePreset.GetName]"
-								}
-		
-								achievements_enabled_icon = {
-									visible = "[And( GuiGameRulePreset.IsIronmanEnabled, Not( GuiGameRulePreset.HasRuleWithFlag('blocks_achievements') ) )]"
-									size = { 20 20 }
-								}
-			
-								achievements_disabled_icon = {
-									visible = "[Or( Not( GuiGameRulePreset.IsIronmanEnabled ), GuiGameRulePreset.HasRuleWithFlag('blocks_achievements') )]"
-									size = { 20 20 }
-								}
-							}  
-						}
-					}
-
-					blockoverride "dropdown_list_properties"
-					{
-						minimumsize = { 192 50 }
-						hbox = {
-							visible = "[IsDataModelEmpty(JominiGameRules.GetRulePresets)]"
-							textbox = {
-								text = "GAME_RULES_PRESET_DROPDOWN_NO_SELECTED_BODY"
-								align = center
-							}
-						}
-					}
-				}
-
-
-				button_standard = {
-					size = { 100 30 }
-
-					onclick = "[JominiGameRules.ShowPresetWindow]"
-					onclick = "[JominiGameRules.SetPresetSaveName]"
-
-					text = "SAVE"
-					tooltip = "SAVE_PRESET_BUTTON_TOOLTIP"
-				}
-
-				button_standard = {
-					size = { 100 30 }
-
-					enabled = "[JominiGameRules.HasValidPresetSelected]"
-					onclick = "[JominiGameRules.DeletePresetAtIndex( JominiGameRules.GetSelectedPresetIndex )]"
-
-					text = "DELETE"
-					tooltip = "DELETE_SELECTED_PRESET_BUTTON_TOOLTIP"
 				}
 			}
-			spacer = { size = { 0 10 }}
-			hbox = {
-				layoutpolicy_horizontal = expanding
-				widget = {
-					visible = "[GetVariableSystem.Exists('GG_vanilla')]"
-					size = { 100 30 }
-				}
-				button_standard = {
-					visible = "[Not(GetVariableSystem.Exists('GG_vanilla'))]"
-					size = { 100 30 }
+		}
 
-					onclick = "[GetVariableSystem.Clear('GG_rulegroup_settings')]"
-					onclick = "[GetVariableSystem.Clear('GG_rulegroup_multiplayer')]"
-					onclick = "[GetVariableSystem.Clear('GG_rulegroup_realm')]"
-					onclick = "[GetVariableSystem.Clear('GG_rulegroup_balance')]"
-					onclick = "[GetVariableSystem.Clear('GG_rulegroup_gender')]"
-					onclick = "[GetVariableSystem.Clear('GG_rulegroup_culture')]"
-					onclick = "[GetVariableSystem.Clear('GG_rulegroup_religion')]"
-					onclick = "[GetVariableSystem.Clear('GG_rulegroup_historicity')]"
-					onclick = "[GetVariableSystem.Clear('GG_Inherichance')]"
-					onclick = "[GetVariableSystem.Clear('GG_TAD')]"
+		hbox = {
+			spacing = 10
 
-					text = "GG_COLLAPSE_ALL"
-					tooltip = "GG_COLLAPSE_ALL_TOOLTIP"
-				}
-				widget = {
-					visible = "[GetVariableSystem.Exists('GG_vanilla')]"
-					size = { 100 30 }
-				}
-				button_standard = {
-					visible = "[Not(GetVariableSystem.Exists('GG_vanilla'))]"
-					size = { 100 30 }
+			button_standard = {
+				size = { 100 30 }
 
-					onclick = "[GetVariableSystem.Set('GG_rulegroup_settings','')]"
-					onclick = "[GetVariableSystem.Set('GG_rulegroup_multiplayer', '')]"
-					onclick = "[GetVariableSystem.Set('GG_rulegroup_realm', '')]"
-					onclick = "[GetVariableSystem.Set('GG_rulegroup_balance', '')]"
-					onclick = "[GetVariableSystem.Set('GG_rulegroup_gender', '')]"
-					onclick = "[GetVariableSystem.Set('GG_rulegroup_culture', '')]"
-					onclick = "[GetVariableSystem.Set('GG_rulegroup_religion', '')]"
-					onclick = "[GetVariableSystem.Set('GG_rulegroup_historicity', '')]"
-					onclick = "[GetVariableSystem.Set('GG_Inherichance', '')]"
-					onclick = "[GetVariableSystem.Set('GG_TAD', '')]"
+				onclick = "[JominiGameRules.ShowPresetWindow]"
+				onclick = "[JominiGameRules.SetPresetSaveName]"
 
-					text = "GG_EXPAND_ALL"
-					tooltip = "GG_EXPAND_ALL_TOOLTIP"
-				}
-				button_standard = {
-					visible = "[Not(GetVariableSystem.Exists('GG_vanilla'))]"
-					size = { 200 30 }
+				text = "SAVE"
+				tooltip = "SAVE_PRESET_BUTTON_TOOLTIP"
+			}
 
-					onclick = "[GetVariableSystem.Toggle('GG_vanilla')]"
-					
-					text = "GG_ON"
-					tooltip = "GG_ON_TOOLTIP"
-				}
-				button_standard = {
-					visible = "[GetVariableSystem.Exists('GG_vanilla')]"
-					size = { 200 30 }
+			button_standard = {
+				size = { 100 30 }
 
-					onclick = "[GetVariableSystem.Toggle('GG_vanilla')]"
-					
-					text = "GG_OFF"
-					tooltip = "GG_OFF_TOOLTIP"
-				}
+				enabled = "[JominiGameRules.HasValidPresetSelected]"
+				onclick = "[JominiGameRules.DeletePresetAtIndex( JominiGameRules.GetSelectedPresetIndex )]"
+
+				text = "DELETE"
+				tooltip = "DELETE_SELECTED_PRESET_BUTTON_TOOLTIP"
 			}
 		}
 	}
@@ -734,278 +681,6 @@ types GameRuleTypes
 				}				
 			}
 			expand = {}
-		}
-	}
-
-	type GG_rulegroup = vbox {
-		margin_top = 10
-		margin_left = 10
-		margin_right = 10
-		background = {
-			using = Background_Frame
-		}
-		button_group = {
-			block "GG_rulegroup" {
-				onclick = "[GetVariableSystem.Toggle('GG_settings')]"
-			}
-			layoutpolicy_horizontal = expanding
-
-			hbox = {
-				min_width = 950
-				layoutpolicy_horizontal = expanding
-				spacing = 5
-
-				widget = {
-					size = { 18 22 }
-
-					button_expand = {
-						block "GG_expand_button" {
-							frame = "[Select_int32( GetVariableSystem.Exists('GG_settings'), '(int32)2', '(int32)1' )]"
-						}
-						parentanchor = center
-					}
-				}
-
-				icon = {
-					size = { 45 45 }
-					background = {
-						block "GG_icon" {
-							texture = "gfx/exe_icon.bmp"
-						}
-					}
-				}
-
-				text_single = {
-					block "GG_rulegroup_name" {
-						# text = "GG_settings"
-					}
-					# default_format = "#low"
-					align = nobaseline
-				}
-
-				expand = {}
-			}
-		}
-		spacer = { size = { 0 10 }}
-
-		vbox = {
-			block "GG_rulegroup_visibility" {
-				visible = "[GetVariableSystem.Exists('GG_settings')]"
-			}
-			block "gamerules" {
-				GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'difficulty' )]" }
-				GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'end_date' )]" }
-			}
-		}
-	}
-
-	type GG_gamerule = hbox {
-		layoutpolicy_horizontal = expanding
-		widget = {
-			size = { 950 83 }
-			datacontext = "[GuiGameRule.GetRule]"
-			datacontext = "[GuiGameRule.GetSetting]"
-
-			background = {
-				using = Background_Area_With_Header
-				alpha = 0.8
-				margin = { 10 5 }
-				margin_bottom = 0
-			}
-
-			vbox = {
-				layoutpolicy_vertical = expanding
-				
-				text_single = {
-					text = "[GameRule.GetName]"
-					max_width = 350
-				}
-
-				spacer = {
-					size = { 10 10 }
-				}
-
-				hbox = {
-					layoutpolicy_horizontal = expanding
-					widget_game_rule_option = {}
-					spacer = { size = { 20 20 }}
-					text_multi = {
-						align = left
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
-						text = "[GameRuleSetting.GetDescription]"
-						default_format = "#low"
-					}
-				}
-				expand = {}
-			}
-		}
-	}
-
-	type GG_rulegroup_settings = GG_rulegroup {
-		blockoverride "GG_rulegroup" {
-			onclick = "[GetVariableSystem.Toggle('GG_rulegroup_settings')]"
-		}
-		blockoverride "GG_expand_button" {
-			frame = "[Select_int32( GetVariableSystem.Exists('GG_rulegroup_settings'), '(int32)2', '(int32)1' )]"
-		}
-		blockoverride "GG_rulegroup_name" {
-			text = "GG_rulegroup_settings"
-		}
-		blockoverride "GG_rulegroup_visibility" {
-			visible = "[GetVariableSystem.Exists('GG_rulegroup_settings')]"
-		}
-		blockoverride "gamerules" {
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'difficulty' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'end_date' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'random_ruler_placement' )]" }
-		}
-	}
-
-	type GG_rulegroup_realm = GG_rulegroup {
-		blockoverride "GG_rulegroup" {
-			onclick = "[GetVariableSystem.Toggle('GG_rulegroup_realm')]"
-		}
-		blockoverride "GG_expand_button" {
-			frame = "[Select_int32( GetVariableSystem.Exists('GG_rulegroup_realm'), '(int32)2', '(int32)1' )]"
-		}
-		blockoverride "GG_rulegroup_name" {
-			text = "GG_rulegroup_realm"
-		}
-		blockoverride "GG_rulegroup_visibility" {
-			visible = "[GetVariableSystem.Exists('GG_rulegroup_realm')]"
-		}
-		blockoverride "gamerules" {
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'realm_stability' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'exclave_independence' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'de_jure_requirement' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'empire_obscurity_requirement' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'custom_kingdoms' )]" }
-		}
-	}
-
-	type GG_rulegroup_multiplayer = GG_rulegroup {
-		blockoverride "GG_rulegroup" {
-			onclick = "[GetVariableSystem.Toggle('GG_rulegroup_multiplayer')]"
-		}
-		blockoverride "GG_expand_button" {
-			frame = "[Select_int32( GetVariableSystem.Exists('GG_rulegroup_multiplayer'), '(int32)2', '(int32)1' )]"
-		}
-		blockoverride "GG_rulegroup_name" {
-			text = "GG_rulegroup_multiplayer"
-		}
-		blockoverride "GG_rulegroup_visibility" {
-			visible = "[GetVariableSystem.Exists('GG_rulegroup_multiplayer')]"
-		}
-		blockoverride "gamerules" {
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'multiplayer_murder_schemes' )]" }
-		}
-	}
-
-	type GG_rulegroup_balance = GG_rulegroup {
-		blockoverride "GG_rulegroup" {
-			onclick = "[GetVariableSystem.Toggle('GG_rulegroup_balance')]"
-		}
-		blockoverride "GG_expand_button" {
-			frame = "[Select_int32( GetVariableSystem.Exists('GG_rulegroup_balance'), '(int32)2', '(int32)1' )]"
-		}
-		blockoverride "GG_rulegroup_name" {
-			text = "GG_rulegroup_balance"
-		}
-		blockoverride "GG_rulegroup_visibility" {
-			visible = "[GetVariableSystem.Exists('GG_rulegroup_balance')]"
-		}
-		blockoverride "gamerules" {
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'minor_disease_frequency' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'casus_belli_costs' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'diplomatic_range' )]" }
-		}
-	}
-
-	type GG_rulegroup_gender = GG_rulegroup {
-		blockoverride "GG_rulegroup" {
-			onclick = "[GetVariableSystem.Toggle('GG_rulegroup_gender')]"
-		}
-		blockoverride "GG_expand_button" {
-			frame = "[Select_int32( GetVariableSystem.Exists('GG_rulegroup_gender'), '(int32)2', '(int32)1' )]"
-		}
-		blockoverride "GG_rulegroup_name" {
-			text = "GG_rulegroup_gender"
-		}
-		blockoverride "GG_rulegroup_visibility" {
-			visible = "[GetVariableSystem.Exists('GG_rulegroup_gender')]"
-		}
-		blockoverride "gamerules" {
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'matrilineal_marriages' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'gender_equality' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'generate_families' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'same_sex_relations' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'same_sex_marriage' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'sexuality_distribution' )]" }
-		}
-	}
-
-	type GG_rulegroup_culture = GG_rulegroup {
-		blockoverride "GG_rulegroup" {
-			onclick = "[GetVariableSystem.Toggle('GG_rulegroup_culture')]"
-		}
-		blockoverride "GG_expand_button" {
-			frame = "[Select_int32( GetVariableSystem.Exists('GG_rulegroup_culture'), '(int32)2', '(int32)1' )]"
-		}
-		blockoverride "GG_rulegroup_name" {
-			text = "GG_rulegroup_culture"
-		}
-		blockoverride "GG_rulegroup_visibility" {
-			visible = "[GetVariableSystem.Exists('GG_rulegroup_culture')]"
-		}
-		blockoverride "gamerules" {
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'hybrid_culture_ai_frequency' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'hybrid_culture_ai_restrictions' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'divergent_culture_ai_frequency' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'hybrid_and_divergence_cooldowns' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'culture_conversion_speed' )]" }
-		}
-	}
-
-	type GG_rulegroup_religion = GG_rulegroup {
-		blockoverride "GG_rulegroup" {
-			onclick = "[GetVariableSystem.Toggle('GG_rulegroup_religion')]"
-		}
-		blockoverride "GG_expand_button" {
-			frame = "[Select_int32( GetVariableSystem.Exists('GG_rulegroup_religion'), '(int32)2', '(int32)1' )]"
-		}
-		blockoverride "GG_rulegroup_name" {
-			text = "GG_rulegroup_religion"
-		}
-		blockoverride "GG_rulegroup_visibility" {
-			visible = "[GetVariableSystem.Exists('GG_rulegroup_religion')]"
-		}
-		blockoverride "gamerules" {
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'regional_heresy' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'faith_conversion_speed' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'faith_acceptance' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'randomized_faiths' )]" }
-		}
-	}
-
-	type GG_rulegroup_historicity = GG_rulegroup {
-		blockoverride "GG_rulegroup" {
-			onclick = "[GetVariableSystem.Toggle('GG_rulegroup_historicity')]"
-		}
-		blockoverride "GG_expand_button" {
-			frame = "[Select_int32( GetVariableSystem.Exists('GG_rulegroup_historicity'), '(int32)2', '(int32)1' )]"
-		}
-		blockoverride "GG_rulegroup_name" {
-			text = "GG_rulegroup_historicity"
-		}
-		blockoverride "GG_rulegroup_visibility" {
-			visible = "[GetVariableSystem.Exists('GG_rulegroup_historicity')]"
-		}
-		blockoverride "gamerules" {
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'mongol_invasion' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'hungarian_migration' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'dlc_fp1_scandinavian_adventurers' )]" }
-			GG_gamerule = { datacontext = "[JominiGameRules.AccessNamedGameRule( 'dissolution_umayyad' )]" }
 		}
 	}
 }
