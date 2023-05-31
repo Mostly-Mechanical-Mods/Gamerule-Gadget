@@ -96,7 +96,7 @@ window = {
 					}
 					
 					dropdown_menu_standard = {
-						# visible = "[And( IsHost, Not( HasGameStartedForTheFirstTime ) )]"
+						visible = "[IsHost]"
 
 						blockoverride "dropdown_properties"
 						{
@@ -202,7 +202,7 @@ window = {
 
 				button_primary = {
 					text = "APPLY"
-					# visible = "[And( IsHost, Not( HasGameStartedForTheFirstTime ) )]"
+					visible = "[IsHost]"
 					onclick = "[JominiGameRules.ApplySettings]"
 					onclick = "[JominiGameRules.Hide]"
 					shortcut = "close_window"

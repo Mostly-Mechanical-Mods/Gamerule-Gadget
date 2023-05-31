@@ -1,0 +1,15 @@
+﻿on_game_start_after_lobby = {
+	on_actions = {
+		GG_on_game_start
+	}
+}
+
+GG_on_game_start = {
+	effect = {
+		set_global_variable = {
+			name = GG_is_loaded
+			value = yes
+		}
+		set_global_variable = GG_v1_1_2
+	}
+}

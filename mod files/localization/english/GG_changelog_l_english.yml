@@ -1,0 +1,13 @@
+﻿l_english:
+
+GG_changelog_alert: "[mmm_gg|E] update"
+GG_changelog_alert_desc: "[mmm_gg|E] has updated since you started this playthrough"
+GG_changelog_alert_click: "#P #italic Left-click to read Changelog and remove the alert#!#!"
+
+GG_changelog_alert_interaction: "[mmm_gg|E] Changelog"
+GG_changelog_alert_interaction_desc: "Changelog for [mmm_gg|E]"
+GG_changelog_alert_interaction_send: "Apply Patch"
+GG_changelog_alert_introduction: "[mmm_gg|E] has updated since you started this playthrough"
+GG_v1_1_2_changelog: "#bold GG v1.1.2#!"
+GG_v1_1_2_changelog_patch: "No patch is necessary on your current savegame."
+GG_v1_1_2_changelog_1: "#bold Random Harm#! and #bold Random Harm Target#! settings can now be changed on a savegame"

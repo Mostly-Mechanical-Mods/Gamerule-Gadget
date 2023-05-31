@@ -313,41 +313,59 @@ mongol_invasion = {
 	}
 }
 
-#random_harm = {
-	#	
-	#categories = {
-		#difficulty health
-	#}
-	#	
-	#default = harm_dangerous
-	#
-	#harm_dangerous = {}
-	#
-	#harm_illusion_of_safety = {}
-	#
-	#harm_safe = {}
-	#
-	#harm_tragic = {}
-	#
-	#harm_spiteful = {}
-	#
-	#harm_tragically_spiteful = {}
-#}
+random_harm = {
+		
+	categories = {
+		vanilla difficulty health
+	}
+		
+	default = harm_dangerous
+	
+	harm_dangerous = {
+		flag = GG_can_change_rule
+	}
+	
+	harm_illusion_of_safety = {
+		flag = GG_can_change_rule
+	}
+	
+	harm_safe = {
+		flag = GG_can_change_rule
+	}
+	
+	harm_tragic = {
+		flag = GG_can_change_rule
+	}
+	
+	harm_spiteful = {
+		flag = GG_can_change_rule
+	}
+	
+	harm_tragically_spiteful = {
+		flag = GG_can_change_rule
+	}
+}
 
-#random_harm_target = {
-	#	
-	#categories = {
-		#difficulty health
-	#}
-	#	
-	#default = harm_target_all
-	#
-	#harm_target_all = {}
-	#	
-	#harm_target_player_only = {}
-	#	
-	#harm_target_ai_only = {}
-#}
+random_harm_target = {
+		
+	categories = {
+		vanilla difficulty health
+	}
+		
+	default = harm_target_all
+	
+	harm_target_all = {
+		flag = GG_can_change_rule
+	}
+		
+	harm_target_player_only = {
+		flag = GG_can_change_rule
+	}
+		
+	harm_target_ai_only = {
+		flag = GG_can_change_rule
+	}
+}
 
 random_nickname_frequency = {
 	
