@@ -627,6 +627,28 @@ same_sex_marriage = {
 	}
 }
 
+adoption = {
+	
+	categories = {
+		vanilla game_modes
+	}
+	
+	default = default_adoption
+
+	no_adoption = {
+		flag = GG_can_change_rule
+	}
+
+	default_adoption = {
+		flag = GG_can_change_rule
+	}
+
+	adoption_always_allowed = {
+		flag = GG_can_change_rule
+		flag = blocks_achievements
+	}
+}
+
 sexuality_distribution = {
 	
 	categories = {
@@ -832,4 +854,26 @@ dissolution_umayyad = {
 	dissolution_unconstrained = {}
 	dissolution_after_caliph_death = {}
 	dissolution_historical_date = {}
+}
+
+dlc_fp3_seljuk_invasion = {
+
+	categories = {
+		vanilla difficulty historicity
+	}
+	
+	default = default_seljuk_invasion
+
+	default_seljuk_invasion = {
+		flag = GG_can_change_rule
+	}
+	
+	never_seljuk_invasion = {
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+
+	random_seljuk_invasion = {
+		flag = GG_can_change_rule
+	}
 }

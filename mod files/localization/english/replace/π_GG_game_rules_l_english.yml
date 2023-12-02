@@ -21,6 +21,7 @@
  rule_sexuality_distribution:0 "@vanilla_icon! Sexuality Distribution"
  rule_same_sex_relations:0 "@vanilla_icon! Same-Sex Relations"
  rule_same_sex_marriage:0 "@vanilla_icon! Same-Sex Marriage"
+ rule_adoption: "@vanilla_icon! Adoption"
  rule_randomized_faiths:0 "@vanilla_icon! Randomized Faiths"
  rule_faith_acceptance:0 "@vanilla_icon! Faith Acceptance"
  rule_ai_embarkation_cost:0 "@vanilla_icon! AI Embarkation Cost"
@@ -50,3 +51,4 @@
  rule_divergent_culture_ai_frequency:0 "@vanilla_icon! Divergent Culture Frequency"
  rule_hybrid_and_divergence_cooldowns:0 "@vanilla_icon! Divergent & Hybrid Culture Cooldowns"
  rule_dissolution_umayyad:0 "@vanilla_icon! Fall of Al-Andalus"
+ rule_dlc_fp3_seljuk_invasion: "@vanilla_icon! Seljuk Invasion"
