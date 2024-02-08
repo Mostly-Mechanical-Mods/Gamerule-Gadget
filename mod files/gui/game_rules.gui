@@ -96,8 +96,9 @@ window = {
 					}
 					
 					dropdown_menu_standard = {
+						#[GG]
 						visible = "[IsHost]"
-
+						#[/GG]
 						blockoverride "dropdown_properties"
 						{
 							datamodel = "[JominiGameRules.GetCategories]"
@@ -202,7 +203,9 @@ window = {
 
 				button_primary = {
 					text = "APPLY"
+					#[GG]
 					visible = "[IsHost]"
+					#[/GG]
 					onclick = "[JominiGameRules.ApplySettings]"
 					onclick = "[JominiGameRules.Hide]"
 					shortcut = "close_window"
@@ -227,7 +230,9 @@ types GameRuleTypes
 		}
 
 		button_select_arrow = {
+			#[GG]
 			visible = "[And( IsHost, Or(Not( HasGameStartedForTheFirstTime ), GameRuleSetting.HasFlag( 'GG_can_change_rule')))]"
+			#[/GG]
 			size = { 25 25 }
 			parentanchor = left|vcenter
 			mirror = horizontal
@@ -255,7 +260,9 @@ types GameRuleTypes
 		}
 
 		button_select_arrow = {
+			#[GG]
 			visible = "[And( IsHost, Or(Not( HasGameStartedForTheFirstTime ), GameRuleSetting.HasFlag( 'GG_can_change_rule')))]"
+			#[/GG]
 			size = { 25 25 }
 			parentanchor = right|vcenter
 
