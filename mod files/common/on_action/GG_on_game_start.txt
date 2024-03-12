@@ -11,5 +11,7 @@ GG_on_game_start = {
 			value = yes
 		}
 		set_global_variable = GG_v1_1_2
+		set_global_variable = GG_v1_1_3
+		set_global_variable = GG_v1_1_4
 	}
 }

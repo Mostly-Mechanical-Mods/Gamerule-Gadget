@@ -11,3 +11,6 @@ GG_changelog_alert_introduction: "[mmm_gg|E] has updated since you started this 
 GG_v1_1_2_changelog: "#bold GG v1.1.2#!"
 GG_v1_1_2_changelog_patch: "No patch is necessary on your current savegame."
 GG_v1_1_2_changelog_1: "#bold Random Harm#! and #bold Random Harm Target#! settings can now be changed on a savegame"
+GG_v1_1_4_changelog: "#bold GG v1.1.4#!"
+GG_v1_1_4_changelog_patch: "No patch is necessary on your current savegame."
+GG_v1_1_4_changelog_1: "New game rules introduced in 1.12 Scythe can now be changed on a savegame"

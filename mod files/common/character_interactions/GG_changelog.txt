@@ -11,7 +11,7 @@
 
 	is_shown = {
 		scope:actor = scope:recipient
-		NOT = { has_global_variable = GG_v1_1_2 }
+		NOT = { has_global_variable = GG_v1_1_4 }
 	}
 
 	is_valid_showing_failures_only = {
@@ -31,6 +31,8 @@
 
 	on_send = {
 		set_global_variable = GG_v1_1_2
+		set_global_variable = GG_v1_1_3
+		set_global_variable = GG_v1_1_4
 	}
 
 	on_auto_accept = {
@@ -45,12 +47,12 @@
 			custom = GG_changelog_alert_introduction
 		}
 		if = {
-			limit = { NOT = { has_global_variable = GG_v1_1_2 }}
+			limit = { NOT = { has_global_variable = GG_v1_1_4 }}
 			every_in_list = {
 				list = debug
-				custom = GG_v1_1_2_changelog
-				custom_tooltip = GG_v1_1_2_changelog_patch
-				custom_tooltip = GG_v1_1_2_changelog_1
+				custom = GG_v1_1_4_changelog
+				custom_tooltip = GG_v1_1_4_changelog_patch
+				custom_tooltip = GG_v1_1_4_changelog_1
 			}
 		}
 	}

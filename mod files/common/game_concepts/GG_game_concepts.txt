@@ -1,8 +1,0 @@
-﻿mmm = {
-	texture = "gfx/ff_gfx/mod_icons/mmm_icon.dds"
-}
-
-mmm_gg = {
-	parent = mmm
-	texture = "gfx/ff_gfx/mod_icons/mmm_gg_icon.dds"
-}
