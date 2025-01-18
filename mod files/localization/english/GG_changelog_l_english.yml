@@ -14,3 +14,6 @@ GG_v1_1_2_changelog_1: "#bold Random Harm#! and #bold Random Harm Target#! setti
 GG_v1_1_4_changelog: "#bold GG v1.1.4#!"
 GG_v1_1_4_changelog_patch: "No patch is necessary on your current savegame."
 GG_v1_1_4_changelog_1: "New game rules introduced in 1.12 Scythe can now be changed on a savegame"
+GG_v1_1_6_changelog: "#bold GG v1.1.6#!"
+GG_v1_1_6_changelog_patch: "No patch is necessary on your current savegame."
+GG_v1_1_6_changelog_1: "New game rules introduced in 1.14 Traverse can now be changed on a savegame"

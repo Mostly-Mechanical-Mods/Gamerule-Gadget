@@ -81,6 +81,146 @@ multiplayer_murder_schemes = {
 	}
 }
 
+conquerors_frequency = {
+	
+	categories = {
+		vanilla difficulty ai
+	}
+	
+	default = default_conquerors_frequency
+
+	default_conquerors_frequency = {
+		flag = GG_can_change_rule
+	}
+	
+	no_conquerors_frequency = {
+		flag = GG_can_change_rule
+	}
+	
+	few_conquerors_frequency = {
+		flag = GG_can_change_rule
+	}
+	
+	very_few_conquerors_frequency = {
+		flag = GG_can_change_rule
+	}
+	
+	many_conquerors_frequency = {
+		flag = GG_can_change_rule
+	}
+
+	strong_default_conquerors_frequency = {
+		flag = GG_can_change_rule
+	}
+	
+	strong_few_conquerors_frequency = {
+		flag = GG_can_change_rule
+	}
+	
+	strong_very_few_conquerors_frequency = {
+		flag = GG_can_change_rule
+	}
+	
+	strong_many_conquerors_frequency = {
+		flag = GG_can_change_rule
+	}
+}
+
+conquerors_bonuses = {
+	
+	categories = {
+		difficulty ai
+	}
+	
+	default = default_conquerors_bonuses
+
+	default_conquerors_bonuses = {
+		flag = GG_can_change_rule
+	}
+	
+	no_conquerors_bonuses = {
+		flag = GG_can_change_rule
+	}
+	
+	extreme_conquerors_bonuses = {
+		flag = GG_can_change_rule
+	}
+	
+	random_conquerors_bonuses = {
+		flag = GG_can_change_rule
+	}
+}
+
+conquerors_inheritance = {
+	
+	categories = {
+		vanilla difficulty ai
+	}
+	
+	default = primary_conquerors_inheritance
+
+	default_conquerors_inheritance = {
+		flag = GG_can_change_rule
+	}
+	
+	primary_conquerors_inheritance = {
+		flag = GG_can_change_rule
+	}
+	
+	no_conquerors_inheritance = {
+		flag = GG_can_change_rule
+	}
+}
+
+black_death_occurrence = {
+	
+	categories = {
+		vanilla difficulty health historicity
+	}
+	
+	default = bd_occurrence_historical
+	bd_occurrence_historical = {
+		flag = GG_can_change_rule
+	}
+	bd_occurrence_organic = {
+		flag = GG_can_change_rule
+	}
+	bd_occurrence_random = {
+		flag = GG_can_change_rule
+	}
+}
+
+black_death_frequency = {
+	
+	categories = {
+		vanilla difficulty health historicity
+	}
+	
+	default = bd_frequency_once
+	bd_frequency_once = { flag = GG_can_change_rule }
+	bd_frequency_unlimited = { flag = GG_can_change_rule }
+	bd_frequency_never = {
+		flag = blocks_achievements
+		flag = GG_can_change_rule
+	}
+}
+
+other_epidemic_frequency = {
+	
+	categories = {
+		vanilla difficulty health
+	}
+	
+	default = epidemic_frequency_normal
+	epidemic_frequency_normal = { flag = GG_can_change_rule }
+	epidemic_frequency_often = { flag = GG_can_change_rule }
+	epidemic_frequency_very_often = { flag = GG_can_change_rule }
+	epidemic_frequency_doomsday = { flag = GG_can_change_rule }
+	epidemic_frequency_rare = { flag = GG_can_change_rule }
+	epidemic_frequency_very_rare = { flag = GG_can_change_rule }
+	epidemic_frequency_disabled = { flag = GG_can_change_rule }
+}
+
 minor_disease_frequency = {
 	
 	categories = {
@@ -99,45 +239,6 @@ minor_disease_frequency = {
 	}
 }
 
-black_death_occurrence = {
-	
-	categories = {
-		vanilla difficulty health historicity
-	}
-	
-	default = bd_occurrence_historical
-	bd_occurrence_historical = {}
-	bd_occurrence_organic = {}
-	bd_occurrence_random = {}
-}
-
-black_death_frequency = {
-	
-	categories = {
-		vanilla difficulty health historicity
-	}
-	
-	default = bd_frequency_once
-	bd_frequency_once = {}
-	bd_frequency_unlimited = {}
-	bd_frequency_never = { flag = blocks_achievements }
-}
-
-other_epidemic_frequency = {
-	
-	categories = {
-		vanilla difficulty health
-	}
-	
-	default = epidemic_frequency_normal
-	epidemic_frequency_normal = {}
-	epidemic_frequency_often = {}
-	epidemic_frequency_very_often = {}
-	epidemic_frequency_doomsday = {}
-	epidemic_frequency_rare = { flag = blocks_achievements }
-	epidemic_frequency_very_rare = { flag = blocks_achievements }
-}
-
 legend_spread_chance = {
 	
 	categories = {
@@ -145,11 +246,11 @@ legend_spread_chance = {
 	}
 	
 	default = legend_spread_chance_normal
-	legend_spread_chance_normal = {}
-	legend_spread_chance_high = {}
-	legend_spread_chance_very_high = {}
-	legend_spread_chance_low = {}
-	legend_spread_chance_very_low = {}
+	legend_spread_chance_normal = { flag = GG_can_change_rule }
+	legend_spread_chance_high = { flag = GG_can_change_rule }
+	legend_spread_chance_very_high = { flag = GG_can_change_rule }
+	legend_spread_chance_low = { flag = GG_can_change_rule }
+	legend_spread_chance_very_low = { flag = GG_can_change_rule }
 }
 
 legend_cost = {
@@ -159,11 +260,22 @@ legend_cost = {
 	}
 	
 	default = legend_cost_normal
-	legend_cost_normal = {}
-	legend_cost_high = {}
-	legend_cost_very_high = {}
-	legend_cost_low = {}
-	legend_cost_very_low = {}
+	legend_cost_normal = { flag = GG_can_change_rule }
+	legend_cost_high = { flag = GG_can_change_rule }
+	legend_cost_very_high = { flag = GG_can_change_rule }
+	legend_cost_low = { flag = GG_can_change_rule }
+	legend_cost_very_low = { flag = GG_can_change_rule }
+}
+
+historical_legends = {
+	
+	categories = {
+		vanilla historicity
+	}
+	
+	default = historical_legends_dynamic
+	historical_legends_dynamic = { flag = GG_can_change_rule }
+	historical_legends_only = { flag = GG_can_change_rule }
 }
 
 matrilineal_marriages = {
@@ -211,6 +323,64 @@ gender_equality = {
 	}
 
 	inversed_gender_equality = {
+	}
+}
+
+historical_characters = {
+	
+	categories = {
+		vanilla historicity
+	}
+	
+	default = default_historical_characters
+
+	default_historical_characters = {
+		flag = GG_can_change_rule
+	}
+	
+	all_historical_characters = {
+		flag = GG_can_change_rule
+	}
+
+	no_historical_characters = {
+		flag = GG_can_change_rule
+	}
+}
+
+name_of_byzantium = {
+	
+	categories = {
+		historicity
+	}
+	
+	default = default_name_of_byzantium
+
+	default_name_of_byzantium = {
+		flag = GG_can_change_rule
+	}
+	
+	eastern_rome_name_of_byzantium = {
+		flag = GG_can_change_rule
+	}
+
+	roman_empire_name_of_byzantium = {
+		flag = GG_can_change_rule
+	}
+
+	romania_name_of_byzantium = {
+		flag = GG_can_change_rule
+	}
+
+	empire_of_the_greeks_name_of_byzantium = {
+		flag = GG_can_change_rule
+	}
+
+	rhomaion_name_of_byzantium = {
+		flag = GG_can_change_rule
+	}
+
+	unholy_roman_empire_name_of_byzantium = {
+		flag = GG_can_change_rule
 	}
 }
 
@@ -943,4 +1113,248 @@ dlc_fp3_seljuk_invasion = {
 	random_seljuk_invasion = {
 		flag = GG_can_change_rule
 	}
+}
+
+
+struggle_iberia = {
+	
+	categories = { vanilla historicity game_modes }
+	
+	default = struggle_iberia_toggle_on
+
+	struggle_iberia_toggle_on = {}
+
+	struggle_iberia_toggle_off = {}
+}
+
+struggle_persia = {
+	
+	categories = { vanilla historicity game_modes }
+	
+	default = struggle_persia_toggle_on
+
+	struggle_persia_toggle_on = {}
+
+	struggle_persia_toggle_off = {}
+}
+
+historicity_ruler_of_munster = {
+	
+	categories = { vanilla historicity flavor }
+	
+	default = historicity_ruler_of_munster_classic_murchad
+
+	historicity_ruler_of_munster_classic_murchad = {}
+
+	historicity_ruler_of_munster_historical_toirdelbach = {}
+}
+
+historicity_norman_conquest = {
+	
+	categories = { vanilla historicity }
+	
+	default = historicity_norman_conquest_default_random
+
+	historicity_norman_conquest_default_random = {}
+
+	historicity_norman_conquest_determined_harold = {}
+	
+	historicity_norman_conquest_determined_harald = {}
+	
+	historicity_norman_conquest_determined_william = {}
+	
+	historicity_norman_conquest_determined_edgar = {}
+	
+	historicity_norman_conquest_determined_margaret = {}
+	
+	historicity_norman_conquest_determined_aelfwine = {}
+	
+	historicity_norman_conquest_determined_svend = {}
+	
+	historicity_norman_conquest_determined_cadoc = {}
+}
+
+historicity_extra_admin_egypt = {
+	
+	categories = { vanilla historicity }
+	
+	default = historicity_extra_admin_egypt_gameplay_not_administrative
+
+	historicity_extra_admin_egypt_gameplay_not_administrative = {}
+
+	historicity_extra_admin_egypt_historic_always = {}
+}
+
+historicity_extra_admin_arabia = {
+	
+	categories = { vanilla historicity }
+	
+	default = historicity_extra_admin_arabia_gameplay_not_administrative
+
+	historicity_extra_admin_arabia_gameplay_not_administrative = {}
+
+	historicity_extra_admin_arabia_historic_867 = {}
+}
+
+historicity_extra_admin_ghana = {
+	
+	categories = { vanilla historicity }
+	
+	default = historicity_extra_admin_ghana_gameplay_not_administrative
+
+	historicity_extra_admin_ghana_gameplay_not_administrative = {}
+
+	historicity_extra_admin_ghana_historic_always = {}
+}
+
+historicity_extra_admin_kabulistan = {
+	
+	categories = { vanilla historicity }
+	
+	default = historicity_extra_admin_kabulistan_gameplay_not_administrative
+
+	historicity_extra_admin_kabulistan_gameplay_not_administrative = {}
+
+	historicity_extra_admin_kabulistan_historic_always = {}
+}
+
+historicity_extra_admin_persia = {
+	
+	categories = { vanilla historicity }
+	
+	default = historicity_extra_admin_persia_gameplay_not_administrative
+
+	historicity_extra_admin_persia_gameplay_not_administrative = {}
+
+	historicity_extra_admin_persia_historic_1178 = {}
+
+	historicity_extra_admin_persia_alt_historic_always = {}
+}
+
+historicity_extra_admin_maghreb = {
+	
+	categories = { vanilla historicity }
+	
+	default = historicity_extra_admin_maghreb_gameplay_not_administrative
+
+	historicity_extra_admin_maghreb_gameplay_not_administrative = {}
+
+	historicity_extra_admin_maghreb_historic_post_1066 = {}
+
+	historicity_extra_admin_maghreb_alt_historic_always = {}
+}
+
+historicity_extra_admin_tamilakam = {
+	
+	categories = { vanilla historicity }
+	
+	default = historicity_extra_admin_tamilakam_gameplay_not_administrative
+
+	historicity_extra_admin_tamilakam_gameplay_not_administrative = {}
+
+	historicity_extra_admin_tamilakam_historic_1066 = {}
+
+	historicity_extra_admin_tamilakam_alt_historic_always = {}
+}
+
+historicity_extra_admin_carolingians = {
+	
+	categories = { vanilla historicity }
+	
+	default = historicity_extra_admin_carolingians_gameplay_not_administrative
+
+	historicity_extra_admin_carolingians_gameplay_not_administrative = {}
+
+	historicity_extra_admin_carolingians_alt_historic_all_administrative = {}
+
+	historicity_extra_admin_carolingians_alt_historic_west_francia_administrative = {}
+
+	historicity_extra_admin_carolingians_alt_historic_lotharingia_administrative = {}
+
+	historicity_extra_admin_carolingians_alt_historic_east_francia_administrative = {}
+
+	historicity_extra_admin_carolingians_alt_historic_italy_administrative = {}
+}
+
+historicity_extra_admin_player_wherever = {
+	
+	categories = { vanilla historicity game_modes }
+	
+	default = historicity_extra_admin_player_wherever_gameplay_not_administrative
+
+	historicity_extra_admin_player_wherever_gameplay_not_administrative = {}
+
+	historicity_extra_admin_player_wherever_alt_historic_always = {}
+
+	historicity_extra_admin_player_wherever_alt_historic_with_august_trait = {}
+}
+
+title_creation_imperial_power_projection = {
+	
+	categories = { vanilla titles tweaks }
+	
+	default = title_creation_imperial_power_projection_none
+
+	title_creation_imperial_power_projection_none = { flag = GG_can_change_rule }
+
+	title_creation_imperial_power_projection_any_power_advantage = { flag = GG_can_change_rule }
+
+	title_creation_imperial_power_projection_hard_power_only = { flag = GG_can_change_rule }
+
+	title_creation_imperial_power_projection_soft_power_only = { flag = GG_can_change_rule }
+
+	title_creation_imperial_power_projection_hard_power_only_strict = { flag = GG_can_change_rule }
+
+	title_creation_imperial_power_projection_any_power_strict = { flag = GG_can_change_rule }
+}
+
+title_creation_imperial_power_projection_targeting = {
+
+	categories = { vanilla titles tweaks }
+	
+	default = title_creation_imperial_power_projection_targeting_ai_only
+
+	title_creation_imperial_power_projection_targeting_ai_only = { flag = GG_can_change_rule }
+
+	title_creation_imperial_power_projection_targeting_both = { flag = GG_can_change_rule }
+
+	title_creation_imperial_power_projection_targeting_player_only = { flag = GG_can_change_rule }
+}
+
+historicity_frankokratia = {
+	categories = { vanilla historicity difficulty }
+
+	default = historicity_frankokratia_default
+
+	historicity_frankokratia_default = {}
+
+	historicity_frankokratia_blocked = {}
+
+	historicity_frankokratia_fourth_crusade = {}
+
+	historicity_frankokratia_high = {}
+}
+
+ai_laamp_numbers = {
+	categories = { vanilla tweaks }
+
+	default = ai_laamp_numbers_200
+
+	ai_laamp_numbers_200 = { flag = GG_can_change_rule }
+	ai_laamp_numbers_150 = { flag = GG_can_change_rule }
+	ai_laamp_numbers_100 = { flag = GG_can_change_rule }
+	ai_laamp_numbers_50 = { flag = GG_can_change_rule }
+	ai_laamp_numbers_25 = { flag = GG_can_change_rule }
+}
+
+advantage_damage_effect = {
+	categories = { vanilla tweaks }
+	
+	default = advantage_damage_effect_5
+	
+	advantage_damage_effect_1 = { flag = advantage_damage_effect_1 flag = GG_can_change_rule }
+	advantage_damage_effect_2 = { flag = advantage_damage_effect_2 flag = GG_can_change_rule }
+	advantage_damage_effect_5 = { flag = advantage_damage_effect_5 flag = GG_can_change_rule }
+	advantage_damage_effect_7 = { flag = advantage_damage_effect_7 flag = GG_can_change_rule }
+	advantage_damage_effect_10 = { flag = advantage_damage_effect_10 flag = GG_can_change_rule }
 }
